@@ -170,13 +170,15 @@ export default function Home() {
                     className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
           >
             <h1 className="text-center mb-24 md:mb-12 font-extrabold text-4xl sm:text-5xl lg:text-6xl" style={{ color: '#4682b4'}}>
-              <span className="mb-6">Let's get </span>
+              <span className="mb-6">Let's</span>
               <br></br>
               <TypeAnimation
                 sequence={[
-                  'Organized',
+                  'be organized',
                   1000,
-                  'Efficient',
+                  'get motivated',
+                  1000,
+                  'be productive',
                   1000
                 ]}
                 wrapper="span"
