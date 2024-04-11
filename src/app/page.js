@@ -3,8 +3,11 @@ import React, { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { motion } from "framer-motion";
+import { TypeAnimation } from 'react-type-animation';
 
 import LoginForm from "@/Components/LoginForm";
+import ParticleBackground from "@/Components/ParticleBackground";
 
 // API KEYS & DATA
 const firebaseApiKey = process.env.NEXT_PUBLIC_REACT_APP_FIREBASE_API_KEY;
@@ -146,9 +149,10 @@ export default function Home() {
     );
   } else {
     return (
-      <main className="bg-[#f8f8ff]">
+      <main >
         <section className="grid md:grid-cols-2 py-max-height gap-4 relative min-h-screen">
           <div>
+            <ParticleBackground />
             <LoginForm
             email={email}
             setEmail={setEmail}
@@ -159,8 +163,29 @@ export default function Home() {
             error={error}
             />
           </div>
-          <div>
-
+          <div className="container_left">
+          <motion.div initial={{ opacity: 0, scale: 0.5}} 
+                    animate={{ opacity: 1, scale: 1 }} 
+                    transition={{ duration: 1.5 }}
+                    className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+          >
+            <h1 className="text-center mb-24 md:mb-12 font-extrabold text-4xl sm:text-5xl lg:text-6xl" style={{ color: '#4682b4'}}>
+              <span className="mb-6">Let's get </span>
+              <br></br>
+              <TypeAnimation
+                sequence={[
+                  'Organized',
+                  1000,
+                  'Efficient',
+                  1000
+                ]}
+                wrapper="span"
+                speed={30}
+                repeat={Infinity}
+              />
+            
+            </h1>
+          </motion.div>
           </div>
         </section>
       </main>

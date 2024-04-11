@@ -4,7 +4,7 @@ const LoginForm = ({ email, setEmail, password, setPassword, handleLoginClick, h
   return (
     <div className="container_left">
       <div>
-        <h2 className="text-center mt-20 mb-24 md:mb-12 font-extrabold text-4xl sm:text-5xl lg:text-6xl" style={{ color: '#4682b4'}}>
+        <h2 className="text-center mb-24 md:mb-12 font-extrabold text-4xl sm:text-5xl lg:text-6xl" style={{ color: '#4682b4'}}>
             <span>
                 To-Do List
             </span>
