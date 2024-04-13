@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 
-const Dates = () => {
+const Dates = ({ pickedDate, setPickedDate}) => {
     const [date, setDate] = useState(new Date());
 
     const handleDateChange = newDate => {
         setDate(newDate);
-        console.log(newDate);
+        setPickedDate(newDate);
     };
 
     return (

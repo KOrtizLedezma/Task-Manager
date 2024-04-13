@@ -51,6 +51,8 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
 
+  const [pickedDate, setPickedDate] = useState("");
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -146,12 +148,18 @@ export default function Home() {
       <div>
       <main className="flex min-h-screen flex-col items-center">
         <ParticleBackground />
-        <section className="grid md:grid-cols-2 py-max-height gap-4 relative min-h-screen">
-          <div className="col-span-2 md:col-span-1">
-            <Dates />
+        <section className="grid-container">
+          <div className="grid-item">
+            <Dates 
+            pickedDate={pickedDate}
+            setPickedDate={setPickedDate}
+            />
           </div>
-          <div className="col-span-2 md:col-span-1">
-            <Tasks />
+          <div className="grid-item">
+            <Tasks
+              pickedDate={pickedDate}
+              handleLogoutClick={handleLogoutClick}
+            />
           </div>
         </section>
       </main>
