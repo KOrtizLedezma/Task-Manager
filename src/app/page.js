@@ -145,6 +145,7 @@ export default function Home() {
     return (
       <div>
       <main className="flex min-h-screen flex-col items-center">
+        <ParticleBackground />
         <section className="grid md:grid-cols-2 py-max-height gap-4 relative min-h-screen">
           <div className="col-span-2 md:col-span-1">
             <Dates />
