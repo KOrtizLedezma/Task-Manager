@@ -8,6 +8,8 @@ import { TypeAnimation } from 'react-type-animation';
 
 import LoginForm from "@/Components/LoginForm";
 import ParticleBackground from "@/Components/ParticleBackground";
+import Dates from "@/Components/Dates";
+import Tasks from "@/Components/Tasks";
 
 // API KEYS & DATA
 const firebaseApiKey = process.env.NEXT_PUBLIC_REACT_APP_FIREBASE_API_KEY;
@@ -93,7 +95,6 @@ export default function Home() {
       console.log("User logged out successfully!");
       setEmail("");
       setPassword("");
-      resetGame();
     } catch (error) {
       console.error("Error logging out:", error);
     }
@@ -143,9 +144,17 @@ export default function Home() {
   if (user) {
     return (
       <div>
-        <main className="flex min-h-screen flex-col items-center" style={{ backgroundColor: '#f8f8ff'}}>
-        </main>
-      </div>
+      <main className="flex min-h-screen flex-col items-center">
+        <section className="grid md:grid-cols-2 py-max-height gap-4 relative min-h-screen">
+          <div className="col-span-2 md:col-span-1">
+            <Dates />
+          </div>
+          <div className="col-span-2 md:col-span-1">
+            <Tasks />
+          </div>
+        </section>
+      </main>
+    </div>
     );
   } else {
     return (
