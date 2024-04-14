@@ -109,8 +109,8 @@ export default function Home() {
 
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
-        score: 0,
-        uid: user.uid
+        uid: user.uid,
+        dates: []
       });
 
       console.log("User registered successfully!");
@@ -143,6 +143,38 @@ export default function Home() {
     }
   };
 
+  const handleNewDate = async (userId, newDate) => {
+    if (user) {
+
+      const userId = user.uid;
+      const userRef = doc(db, "users", userId);
+
+      const userDoc = await getDoc(userRef);
+      const currentDates = userDoc.data().dates || [];
+
+      const newDateObj = {
+        name: newDate,
+        tasks: []
+      };
+
+      const existingDateIndex = currentDates.findIndex(date => date.name === newDate);
+      if (existingDateIndex === -1) {
+        currentDates.push(newDateObj);
+      }
+
+      await setDoc(userRef, { dates: currentDates }, { merge: true });
+
+      setUser(prevUser => ({
+        ...prevUser,
+        dates: currentDates
+      }));
+
+    }
+    else{
+      console.error("No user is currently logged in.");
+    }
+  };
+
   if (user) {
     return (
       <div>
@@ -159,6 +191,8 @@ export default function Home() {
             <Tasks
               pickedDate={pickedDate}
               handleLogoutClick={handleLogoutClick}
+              handleNewDate={handleNewDate}
+              userId={user.uid}
             />
           </div>
         </section>
