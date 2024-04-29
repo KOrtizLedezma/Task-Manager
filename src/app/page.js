@@ -175,6 +175,72 @@ export default function Home() {
     }
   };
 
+  const handleNewTask = async (userId, dateName, task) => {
+    if (user) {
+
+      const userId = user.uid;
+      const userRef = doc(db, "users", userId);
+      const userDoc = await getDoc(userRef);
+
+      const newTaskObj = {
+        taskName: task,
+        state: false
+      }
+
+      if (userDoc.exists()){
+        const currentDates = userDoc.data().dates || [];
+        const dateIndex = currentDates.findIndex(date => date.name === dateName);
+
+        if (dateIndex !== -1){
+          currentDates[dateIndex].tasks.push(newTaskObj);
+        }
+        else{
+          const newDateObj = {
+            name: dateName,
+            tasks: [newTaskObj]
+          };
+          currentDates.push(newDateObj);
+        }
+        await setDoc(userRef, { dates:currentDates}, {merge:true});
+        console.log("Task added successfully");
+      }
+      else{
+        console.error("User document does not exist.");
+      }
+
+    }
+    else{
+      console.error("No user is currently logged in.");
+    }
+  };
+
+  const showAllTasksOnDate = async (userId, dateName) => {
+    if (!userId) {
+      console.error("No user ID provided.");
+      return;
+    }
+  
+    const userRef = doc(db, "users", userId);
+    const userDoc = await getDoc(userRef);
+  
+    if (userDoc.exists()) {
+      const dates = userDoc.data().dates || [];
+      const dateObj = dates.find(date => date.name === dateName);
+  
+      if (dateObj) {
+        console.log(`Tasks for ${dateName}:`);
+        dateObj.tasks.forEach(task => {
+          console.log(`Task Name: ${task.taskName}, Completed: ${task.state ? 'Yes' : 'No'}`);
+        });
+      } else {
+        console.log(`No tasks found for ${dateName}.`);
+      }
+    } else {
+      console.error("User document does not exist.");
+    }
+  };
+  
+
   if (user) {
     return (
       <div>
@@ -185,6 +251,8 @@ export default function Home() {
             <Dates 
             pickedDate={pickedDate}
             setPickedDate={setPickedDate}
+            showAllTasksOnDate={showAllTasksOnDate}
+            userId={user.uid}
             />
           </div>
           <div className="grid-item">
@@ -192,6 +260,7 @@ export default function Home() {
               pickedDate={pickedDate}
               handleLogoutClick={handleLogoutClick}
               handleNewDate={handleNewDate}
+              handleNewTask={handleNewTask}
               userId={user.uid}
             />
           </div>

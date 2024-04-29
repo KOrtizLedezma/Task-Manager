@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 
-const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, userId }) => {
+const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, userId }) => {
     const [taskName, setTaskName] = useState('');
 
+    function taskObject (order, state){
+        this.order = order,
+        this.state = state
+    }
+
     const addTask = () => {
-        handleNewDate(userId, pickedDate);
-        setTaskName(''); // Clear input field after adding task
+        if (pickedDate !== null){
+            handleNewDate(userId, pickedDate);
+            handleNewTask(userId, pickedDate, taskName);
+            setTaskName('');
+        }
     };
 
     return (
@@ -37,7 +45,7 @@ const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, userId }) => {
                                 />
                             </div>
 
-                            <button className="popups-button">
+                            <button className="popups-button" onClick={addTask}>
                                 <span>Add Task</span>
                             </button>
                         </div>
