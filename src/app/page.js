@@ -53,6 +53,16 @@ export default function Home() {
 
   const [pickedDate, setPickedDate] = useState("");
 
+  let tasksArray = [];
+
+  function addTask(taskDescription, isCompleted){
+    let task = {
+      description: taskDescription,
+      completed: isCompleted
+    };
+    tasksArray.push(task);
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -214,29 +224,32 @@ export default function Home() {
     }
   };
 
-  const showAllTasksOnDate = async (userId, dateName) => {
-    if (!userId) {
-      console.error("No user ID provided.");
-      return;
-    }
-  
-    const userRef = doc(db, "users", userId);
-    const userDoc = await getDoc(userRef);
-  
-    if (userDoc.exists()) {
-      const dates = userDoc.data().dates || [];
-      const dateObj = dates.find(date => date.name === dateName);
-  
-      if (dateObj) {
-        console.log(`Tasks for ${dateName}:`);
-        dateObj.tasks.forEach(task => {
-          console.log(`Task Name: ${task.taskName}, Completed: ${task.state ? 'Yes' : 'No'}`);
-        });
+  const getAllTasksOnDate = async (userId, dateName) => {
+    if (user) {
+      const userId = user.uid;
+      const userRef = doc(db, "users", userId);
+      const userDoc = await getDoc(userRef);
+
+      if (userDoc.exists()) {
+        const dates = userDoc.data().dates || [];
+        const dateObj = dates.find(date => date.name === dateName);
+    
+        if (dateObj) {
+          console.log(`Tasks for ${dateName}:`);
+          dateObj.tasks.forEach(task => {
+            console.log(`Task Name: ${task.taskName}, Completed: ${task.state ? 'Yes' : 'No'}`);
+            addTask(task.taskName, task.state);
+          });
+        } else {
+          console.log(`No tasks found for ${dateName}.`);
+          tasksArray = [];
+        }
       } else {
-        console.log(`No tasks found for ${dateName}.`);
+        console.error("User document does not exist.");
       }
-    } else {
-      console.error("User document does not exist.");
+    }
+    else{
+      console.error("No user is currently logged in.");
     }
   };
   
@@ -251,7 +264,7 @@ export default function Home() {
             <Dates 
             pickedDate={pickedDate}
             setPickedDate={setPickedDate}
-            showAllTasksOnDate={showAllTasksOnDate}
+            getAllTasksOnDate={getAllTasksOnDate}
             userId={user.uid}
             />
           </div>

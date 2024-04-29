@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
+import MaterialTaskList from './MaterialTaskList';
 
 const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, userId }) => {
     const [taskName, setTaskName] = useState('');
@@ -24,32 +25,7 @@ const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, us
                     <button className="add_new_task_button" onClick={handleLogoutClick}>
                         <span>Sign Out</span>
                     </button>
-                    <Popup
-                        trigger={<button className="add_new_task_button">New Task</button>}
-                        modal
-                        closeOnDocumentClick
-                        overlayStyle={{ backdropFilter: 'blur(5px)' }}
-                    >
-                        <div className='popups'>
-
-                            <h2 className='popups-tittle'>
-                                New Task
-                            </h2>
-
-                            <div className="task-input-container">
-                                <input
-                                type="text"
-                                value={taskName}
-                                onChange={(e) => setTaskName(e.target.value)}
-                                placeholder="Ex: Take out the trash"
-                                />
-                            </div>
-
-                            <button className="popups-button" onClick={addTask}>
-                                <span>Add Task</span>
-                            </button>
-                        </div>
-                    </Popup>
+                    <MaterialTaskList></MaterialTaskList>
                 </div>
             </div>
         </main>

@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import { format } from 'date-fns';
 
-const Dates = ({ pickedDate, setPickedDate, showAllTasksOnDate, userId}) => {
+const Dates = ({ pickedDate, setPickedDate, getAllTasksOnDate, userId}) => {
     const [date, setDate] = useState(new Date());
     const formattedDate = format(date, 'MM/dd/yyyy');
 
     const handleDateChange = async(newDate) => {
         setDate(newDate);
         setPickedDate(format(newDate, 'MM/dd/yyyy'));
-        showAllTasksOnDate(format(newDate, 'MM/dd/yyyy'), userId);
+        getAllTasksOnDate(userId, format(newDate, 'MM/dd/yyyy'));
     };
 
     return (
