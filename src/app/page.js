@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 
 import LoginForm from "@/Components/LoginForm";
