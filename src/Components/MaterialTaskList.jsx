@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
 
-function MaterialTaskList() {
+function MaterialTaskList( {addTask, tasksArray}) {
     const [tasks, setTasks] = useState([]);
     const [input, setInput] = useState('');
-
-    const handleAddTask = () => {
-        if (input.trim()) {
-            setTasks([...tasks, input]);
-            setInput('');
-        }
-    };
 
     return (
         <div>
@@ -21,12 +14,12 @@ function MaterialTaskList() {
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Enter a task"
                 />
-                <button className="add-task-btn" onClick={handleAddTask}>+</button>
+                <button className="add-task-btn" onClick={addTask}>+</button>
             </div>
             
             <ul className="task-list">
-                {tasks.map((task, index) => (
-                    <li key={index}>{task}</li>
+                {tasks.map((tasksArray, index) => (
+                    <li key={index}>{tasksArray.name}</li>
                 ))}
             </ul>
         </div>

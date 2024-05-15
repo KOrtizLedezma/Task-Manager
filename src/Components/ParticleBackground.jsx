@@ -38,7 +38,7 @@ const ParticleBackground = () => {
 
       // Method to draw a particle
       draw() {
-        ctx.fillStyle = '#4682b4';
+        ctx.fillStyle = '#00ADB5';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();

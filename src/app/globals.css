@@ -33,7 +33,7 @@ body {
 }
 
 .input-container {
-  border: 2px solid #4682b4;
+  border: 2px solid #00ADB5;
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 20px;
@@ -47,8 +47,8 @@ body {
   padding: 5px 10px;
   font-size: 16px;
   border-radius: 1px;
-  caret-color: #4682b4;
-  color: #4682b4;
+  caret-color: #FFFFFF;
+  color: #FFFFFF;
   background-color: #000000;
 }
 
@@ -59,11 +59,11 @@ body {
   border: 1px solid #000000;
   -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
   box-shadow: 0 0 0px 1000px #000000 inset;
-  -webkit-text-fill-color: #4682b4;
+  -webkit-text-fill-color: #FFFFFF;
 }
 
 .input-container input::placeholder {
-  color: #4682b4; /* Change the color to gray */
+  color: #FFFFFF; /* Change the color to gray */
 }
 
 .container_left {
@@ -79,7 +79,7 @@ body {
   width: 320px;
   height: 50px;
   border-radius: 10px;
-  background-color: #4682b4;
+  background-color: #00ADB5;
   color: #f8f8ff;
   margin-top: 1rem;
 }
@@ -89,8 +89,8 @@ body {
   width: 30vw;
   height: 4vh;
   border-radius: 10px;
-  background-color: #4682b4;
-  color: #000000;
+  background-color: #00ADB5;
+  color: #FFFFFF;
   margin-top: 1rem;
   font-size: 24px;
 }
@@ -99,7 +99,7 @@ body {
   margin-top: 50px;
   font-size: 1rem;
   background-color: #000000;
-  color: #4682b4;
+  color: #00ADB5;
 }
 
 .error input:-webkit-autofill,
@@ -115,7 +115,7 @@ body {
 .dates {
   display: flex;
   flex-direction: column;
-  border: 2px solid #4682b4;
+  border: 2px solid #00ADB5;
   border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -125,7 +125,7 @@ body {
 }
 
 .tasks {
-  border: 2px solid #4682b4;
+  border: 2px solid #00ADB5;
   border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -137,7 +137,7 @@ body {
   margin-top: 2rem;
   font-size: 32px;
   text-align: center;
-  color: #4682b4;
+  color: #00ADB5;
   background-color: transparent;
 }
 
@@ -173,7 +173,7 @@ body {
   width: 62vw;
   height: 93vh;
   max-width: 100%;
-  color: #000000;
+  color: #FFFFFF;
   border: 2px;
   border-radius: 20px;
   font-family: sans-serif;
@@ -192,10 +192,10 @@ body {
 
 .react-calendar__navigation button {
   align-items: center;
-  color: #000000;
+  color: #FFFFFF;
   min-width: 10vw;
   background: none;
-  background-color: #4682b4;
+  background-color: #00ADB5;
   font-size: 24px;
   border-radius: 20px;
   border: 2px solid #000000;
@@ -203,7 +203,7 @@ body {
 
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
-background-color: #4682b4;
+background-color: #00ADB5;
 }
 .react-calendar__navigation button[disabled] {
 background-color: #000000;
@@ -217,25 +217,25 @@ background-color: #000000;
   text-align: center;
   font-size: 32px;
   padding: 10px 10px;
-  background-color: #A9A9A9;
-  border: 2px solid #000000;
+  background-color: transparent;
+  border: 2px solid #00ADB5;
   border-radius: 10px;
   transition: background-color 0.5s, color 0.5s;
 }
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-  background-color: #4682b4;
+  background-color: #00ADB5;
 }
 
 .react-calendar__tile--active {
-  background-color: #4682b4;
-  color: #000000;
+  background-color: #00ADB5;
+  color: #FFFFFF;
 }
 
 /* Days */ 
 .react-calendar__month-view__weekdays__weekday {
-  background-color: #4682b4;
+  background-color: #00ADB5;
   font-size: 24px;
   border-radius: 20px;
   border: 2px solid #000000;
@@ -247,7 +247,7 @@ background-color: #000000;
 
 .react-calendar__year-view .react-calendar__tile {
   margin-top: 20px;
-  border: 4px solid #000000;
+  border: 4px solid #00ADB5;
   height: 19vh;
   max-width: 33vw;
   border-radius: 20px;
@@ -257,7 +257,7 @@ background-color: #000000;
 /* Decade view */
 .react-calendar__decade-view .react-calendar__tile {
   margin-top: 20px;
-  border: 4px solid #000000;
+  border: 4px solid #00ADB5;
   border-radius: 20px;
   transition: background-color 0.3s, color 0.3s;
   height: 14vh;
@@ -267,7 +267,7 @@ background-color: #000000;
 /* Century view */
 .react-calendar__century-view .react-calendar__tile {
   margin-top: 20px;
-  border: 4px solid #000000;
+  border: 4px solid #00ADB5;
   border-radius: 20px;
   transition: background-color 0.3s, color 0.3s;
   height: 14vh;
@@ -277,7 +277,8 @@ background-color: #000000;
 .react-calendar__month-view__days__day--neighboringMonth,
 .react-calendar__decade-view__years__year--neighboringDecade,
 .react-calendar__century-view__decades__decade--neighboringCentury {
-  background-color: #757575;
+  background-color: transparent;
+  border: solid #00ADB5;
 }
 
 
@@ -314,30 +315,34 @@ background-color: #000000;
   width: 100%;
   height: 4vh;
   padding: 8px;
-  border: 1px solid #4682b4;
+  border: 1px solid #00ADB5;
   border-radius: 10px 0 0 10px;
-  background-color: black;
+  background-color: transparent;
+  color: #FFFFFF;
 }
+
 
 .add-task-btn {
   width: 2vw;
   height: 4vh;
   border-radius: 0 10px 10px 0; /* top-left, top-right, bottom-right, bottom-left */
-  background-color: #4682b4;
+  background-color: #00ADB5;
   color: #000000;
   font-size: 24px;
 }
 
 .task-list {
+  width: 30vw;
   list-style: none;
   padding: 0;
+  color: #FFFFFF;
+  font-size: 24px;
+  margin-bottom: 2px;
 }
 
 .task-list li {
   padding: 8px;
-  border-bottom: 1px solid #ccc;
-}
-
-.task-list li:last-child {
-  border-bottom: none;
+  border: 1px solid #00ADB5;
+  border-radius: 10px;
+  margin-bottom: 4px;
 }

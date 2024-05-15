@@ -53,14 +53,14 @@ export default function Home() {
 
   const [pickedDate, setPickedDate] = useState("");
 
-  let tasksArray = [];
+  const [tasksArray, setTasksArray] = useState([]);
 
-  function addTask(taskDescription, isCompleted){
-    let task = {
+  function addTask(taskDescription, isCompleted) {
+    const task = {
       description: taskDescription,
       completed: isCompleted
     };
-    tasksArray.push(task);
+    setTasksArray(prevTasks => [...prevTasks, task]);
   }
 
   useEffect(() => {
@@ -242,7 +242,7 @@ export default function Home() {
           });
         } else {
           console.log(`No tasks found for ${dateName}.`);
-          tasksArray = [];
+          setTasksArray([]);
         }
       } else {
         console.error("User document does not exist.");
@@ -275,6 +275,7 @@ export default function Home() {
               handleNewDate={handleNewDate}
               handleNewTask={handleNewTask}
               userId={user.uid}
+              tasksArray={tasksArray}
             />
           </div>
         </section>
@@ -303,7 +304,7 @@ export default function Home() {
                     transition={{ duration: 1.5 }}
                     className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
           >
-            <h1 className="text-center mb-24 md:mb-12 font-extrabold text-4xl sm:text-5xl lg:text-6xl" style={{ color: '#4682b4'}}>
+            <h1 className="text-center mb-24 md:mb-12 font-extrabold text-4xl sm:text-5xl lg:text-6xl" style={{ color: '#00ADB5'}}>
               <span className="mb-6">Let's</span>
               <br></br>
               <TypeAnimation

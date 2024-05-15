@@ -2,19 +2,15 @@ import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import MaterialTaskList from './MaterialTaskList';
 
-const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, userId }) => {
+const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, userId, tasksArray }) => {
     const [taskName, setTaskName] = useState('');
-
-    function taskObject (order, state){
-        this.order = order,
-        this.state = state
-    }
 
     const addTask = () => {
         if (pickedDate !== null){
             handleNewDate(userId, pickedDate);
             handleNewTask(userId, pickedDate, taskName);
             setTaskName('');
+            console.log(tasksArray);
         }
     };
 
@@ -25,7 +21,21 @@ const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, us
                     <button className="add_new_task_button" onClick={handleLogoutClick}>
                         <span>Sign Out</span>
                     </button>
-                    <MaterialTaskList></MaterialTaskList>
+                    <div className="task-list-container">
+                        <input
+                            type="text"
+                            className="task-input"
+                            value={taskName}
+                            onChange={(e) => setTaskName(e.target.value)}
+                            placeholder="Enter a task"
+                        />
+                        <button className="add-task-btn" onClick={addTask}>+</button>
+                    </div>
+                    <ul className="task-list">
+                        {tasksArray.map((tasksArray, index) => (
+                            <li key={index}>{tasksArray.description}</li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </main>

@@ -16,7 +16,7 @@ const Dates = ({ pickedDate, setPickedDate, getAllTasksOnDate, userId}) => {
         <main className="main_calendar">
             <div className="dates">
                 <div className="calendar_centered">
-                    <Calendar onChange={handleDateChange} value={date} showNeighboringMonth={true}/>
+                    <Calendar onChange={handleDateChange} value={date} showNeighboringMonth={false}/>
                 </div>
             </div>
         </main>
