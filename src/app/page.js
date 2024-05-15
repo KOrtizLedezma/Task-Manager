@@ -305,7 +305,7 @@ export default function Home() {
                     className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
           >
             <h1 className="text-center mb-24 md:mb-12 font-extrabold text-4xl sm:text-5xl lg:text-6xl" style={{ color: '#00ADB5'}}>
-              <span className="mb-6">Let's</span>
+              <span className="mb-6">Let&apos;s</span>
               <br></br>
               <TypeAnimation
                 sequence={[
