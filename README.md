@@ -1,6 +1,7 @@
 # To-Do List Webpage
 
 A simple and responsive to-do list application built with CSS (Tailwind CSS), and JavaScript.
+There will be future updates to mark tasks as completed or to delete tasks.
 
 ## Table of Contents
 
