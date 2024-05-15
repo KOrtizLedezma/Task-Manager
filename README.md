@@ -1,6 +1,6 @@
 # To-Do List Webpage
 
-A simple and responsive to-do list application built with HTML, CSS (Tailwind CSS), and JavaScript.
+A simple and responsive to-do list application built with CSS (Tailwind CSS), and JavaScript.
 
 ## Table of Contents
 
@@ -46,9 +46,8 @@ You can view a live demo of the application [here](#).
 
 ## Technologies Used
 
-- **HTML**: Structure of the application.
 - **CSS**: Styling, including Tailwind CSS for utility-first styling.
-- **JavaScript**: Functionality and interactivity.
+- **JavaScript**: Structure of the application, functionality and interactivity.
 
 ## Contact
 
