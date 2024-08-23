@@ -18,7 +18,7 @@ const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, us
         <main className="main_tasks">
             <div className="tasks">
                 <div className="tasks_centered">
-                    <button className="add_new_task_button" onClick={handleLogoutClick}>
+                    <button className="sign-out_button" onClick={handleLogoutClick}>
                         <span>Sign Out</span>
                     </button>
                     <div className="task-list-container">

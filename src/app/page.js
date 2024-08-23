@@ -285,7 +285,7 @@ export default function Home() {
   } else {
     return (
       <main >
-        <section className="grid md:grid-cols-2 py-max-height gap-4 relative min-h-screen">
+        <section className="custom-grid">
           <div>
             <ParticleBackground />
             <LoginForm
@@ -302,9 +302,9 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, scale: 0.5}} 
                     animate={{ opacity: 1, scale: 1 }} 
                     transition={{ duration: 1.5 }}
-                    className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+                    className="custom-column"
           >
-            <h1 className="text-center mb-24 md:mb-12 font-extrabold text-4xl sm:text-5xl lg:text-6xl" style={{ color: '#00ADB5'}}>
+            <h1 className="custom-heading">
               <span className="mb-6">Let&apos;s</span>
               <br></br>
               <TypeAnimation

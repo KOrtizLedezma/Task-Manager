@@ -36,9 +36,16 @@ const ParticleBackground = () => {
         if (this.y < 0 || this.y > canvas.height) this.speedY = -this.speedY;
       }
 
-      // Method to draw a particle
+      // Method to draw a particle with a linear side-to-side gradient
       draw() {
-        ctx.fillStyle = '#00ADB5';
+        const gradient = ctx.createLinearGradient(
+          this.x - this.size, this.y, 
+          this.x + this.size, this.y
+        );
+        gradient.addColorStop(0, '#BB86FC'); // Left side color
+        gradient.addColorStop(1, '#03DAC5'); // Right side color
+
+        ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
