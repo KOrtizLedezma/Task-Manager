@@ -309,7 +309,7 @@ export default function Home() {
               <br></br>
               <TypeAnimation
                 sequence={[
-                  'be organized',
+                  'get organized',
                   1000,
                   'get motivated',
                   1000,
