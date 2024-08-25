@@ -1,62 +1,46 @@
-# To-Do List Webpage
+# To-Do List Web App
 
-A simple and responsive to-do list application built with CSS (Tailwind CSS), and JavaScript.
-There will be future updates to mark tasks as completed or to delete tasks.
+Welcome to the To-Do List Web App project! This application allows users to efficiently manage their daily tasks while keeping everything organized by dates. It also features user authentication and real-time data updates using Firebase.
 
-## Table of Contents
+## 🚀 Features
 
-- [Features](#features)
-- [Demo](#demo)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contact](#contact)
+- **User Authentication**: Register, log in, and manage sessions with Firebase Authentication.
+- **Task Management**: Add, view, and organize tasks by specific dates.
+- **Calendar Integration**: Select a date to view or manage tasks assigned to that day.
+- **Responsive Design**: Mobile and desktop-friendly interface.
+- **Visual Enhancements**: Includes particle animations for a visually appealing experience.
 
-## Features
+## 🛠️ Technologies Used
 
-- Add tasks for specifics dates
-- Dark mode
-- Persistent storage using remote storage
+- **Frontend**: React, Next.js
+- **State Management**: React Hooks
+- **Authentication**: Firebase Authentication
+- **Database**: Firestore (Firebase)
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion, Particle Animation
 
-## Demo
+## 🌐 Live Demo
 
-You can view a live demo of the application [here](#).
+You can check out the live demo [here](https://to-do-list-webpage-one.vercel.app/).
 
-## Installation
+## 📚 How to Use
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/KOrtizLedezma/To-Do-List-Webpage.git
-    ```
+1. **Log in or Register**: Create a new account or log in with your existing credentials.
+2. **Pick a Date**: Use the integrated calendar to select a date and view tasks for that day.
+3. **Add a Task**: Enter the task description and add it to the selected date.
+4. **Task Management**: View your tasks and check their completion status.
 
-2. Navigate to the project directory:
-    ```bash
-    cd To-Do-List-Webpage
-    ```
+## 📧 Contact Me
 
-3. Run the local server using:
-    ```node.js command prompt
-    npm run dev
-    ```
+Feel free to reach out to me through:
 
-## Usage
+- **GitHub**: [Kenet Ortiz](https://github.com/KOrtizLedezma)
+- **LinkedIn**: [Kenet Ortiz](https://www.linkedin.com/in/kenet-ortiz-ledezma-67a4a421b/)
 
-1. Run the server.
-2. Pick your date
-2. Use the input field to add a new task.
+## 🛠️ Deployment
 
-## Technologies Used
-
-- **CSS**: Styling, including Tailwind CSS for utility-first styling.
-- **JavaScript**: Structure of the application, functionality and interactivity.
-
-## Contact
-
-For any inquiries or questions, please contact me at:
-
-- **Email**: [kenet2016@icloud.com](mailto:kenet2016@icloud.com)
-- **GitHub**: [KOrtizLedezma](https://github.com/KOrtizLedezma)
+This project is deployed using [Vercel](https://vercel.com/).
 
 ---
 
-Thank you for checking out my To-Do List Webpage!
+Stay organized and productive with this simple and intuitive To-Do List web app!
