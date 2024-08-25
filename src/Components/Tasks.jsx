@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, userId, tasksArray, setTasksArray, getAllTasksOnDate }) => {
+const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, userId, tasksArray, getAllTasksOnDate, deleteTask }) => {
   const [taskName, setTaskName] = useState('');
+  const [hoveredTaskIndex, setHoveredTaskIndex] = useState(null);
 
   const addTask = async () => {
     if (pickedDate) {
@@ -29,11 +30,29 @@ const Tasks = ({ pickedDate, handleLogoutClick, handleNewDate, handleNewTask, us
               onChange={(e) => setTaskName(e.target.value)}
               placeholder="Enter a task"
             />
-            <button className="add-task-btn" onClick={addTask}>+</button>
+            <button className="add-task-btn" onClick={addTask}>
+              +
+            </button>
           </div>
           <ul className="task-list">
             {tasksArray.map((task, index) => (
-              <li key={index}>{task.taskName}</li>
+              <li
+                key={index}
+                onMouseEnter={() => setHoveredTaskIndex(index)}
+                onMouseLeave={() => setHoveredTaskIndex(null)}
+                style={{ position: 'relative', cursor: 'pointer', padding: '10px' }}
+              >
+                {task.taskName}
+
+                {hoveredTaskIndex === index && (
+                  <button
+                    onClick={() => deleteTask(userId, index)}
+                    className='delete-button'
+                  >
+                    X
+                  </button>
+                )}
+              </li>
             ))}
           </ul>
         </div>

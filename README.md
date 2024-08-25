@@ -28,6 +28,7 @@ You can check out the live demo [here](https://to-do-list-webpage-one.vercel.app
 1. **Log in or Register**: Create a new account or log in with your existing credentials.
 2. **Pick a Date**: Use the integrated calendar to select a date and view tasks for that day.
 3. **Add a Task**: Enter the task description and add it to the selected date.
+4. **Remove a Task**: Hover over a task to reveal a "X" button. Click the button to remove the task from your list.
 4. **Task Management**: View your tasks and check their completion status.
 
 ## 📧 Contact Me

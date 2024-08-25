@@ -243,6 +243,26 @@ export default function Home() {
       console.error("No user is currently logged in.");
     }
   };
+
+  const deleteTask = async (userId, taskIndex) => {
+    if (userId && pickedDate) {
+      const userRef = doc(db, "users", userId);
+      const userDoc = await getDoc(userRef);
+
+      if (userDoc.exists()) {
+        const currentDates = userDoc.data().dates || [];
+        const dateObj = currentDates.find((date) => date.name === pickedDate);
+
+        if (dateObj) {
+          dateObj.tasks.splice(taskIndex, 1);
+
+          await setDoc(userRef, { dates: currentDates }, { merge: true });
+
+          await getAllTasksOnDate(userId, pickedDate);
+        }
+      }
+    }
+  };
   
 
   if (user) {
@@ -267,8 +287,8 @@ export default function Home() {
                 handleNewTask={handleNewTask}
                 userId={user.uid}
                 tasksArray={tasksArray}
-                setTasksArray={setTasksArray}
                 getAllTasksOnDate={getAllTasksOnDate}
+                deleteTask = {deleteTask}
               />
             </div>
           </section>

@@ -394,12 +394,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.task-list li:hover {
-  background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
-  color: rgb(var(--secondary-bg));
-  border-radius: 0px;
-}
-
 .custom-heading {
   text-align: center;
   margin-bottom: 6rem;
@@ -425,6 +419,29 @@ body {
   place-self: center;
   text-align: center;
   justify-self: start;
+}
+
+.delete-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+  color: rgb(var(--secondary-bg));
+  border-radius: 5px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.delete-button:hover {
+  background: linear-gradient(135deg, var(--secondary-accent), var(--primary-accent));
 }
 
 @media (min-width: 640px) {
