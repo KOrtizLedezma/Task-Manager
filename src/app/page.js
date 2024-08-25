@@ -50,15 +50,13 @@ export default function Home() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
-
   const [pickedDate, setPickedDate] = useState("");
-
   const [tasksArray, setTasksArray] = useState([]);
 
   function addTask(taskDescription, isCompleted) {
     const task = {
       description: taskDescription,
-      completed: isCompleted
+      completed: false
     };
     setTasksArray(prevTasks => [...prevTasks, task]);
   }
@@ -75,7 +73,6 @@ export default function Home() {
     return () => {
       unsubscribe();
     };
-
   }, []);
 
   const fetchUserData = async (userId) => {
@@ -232,23 +229,17 @@ export default function Home() {
 
       if (userDoc.exists()) {
         const dates = userDoc.data().dates || [];
-        const dateObj = dates.find(date => date.name === dateName);
-    
+        const dateObj = dates.find((date) => date.name === dateName);
+
         if (dateObj) {
-          console.log(`Tasks for ${dateName}:`);
-          dateObj.tasks.forEach(task => {
-            console.log(`Task Name: ${task.taskName}, Completed: ${task.state ? 'Yes' : 'No'}`);
-            addTask(task.taskName, task.state);
-          });
+          setTasksArray(dateObj.tasks);
         } else {
-          console.log(`No tasks found for ${dateName}.`);
           setTasksArray([]);
         }
       } else {
         console.error("User document does not exist.");
       }
-    }
-    else{
+    } else {
       console.error("No user is currently logged in.");
     }
   };
@@ -257,77 +248,70 @@ export default function Home() {
   if (user) {
     return (
       <div>
-      <main className="flex min-h-screen flex-col items-center">
-        <ParticleBackground />
-        <section className="grid-container">
-          <div className="grid-item">
-            <Dates 
-            pickedDate={pickedDate}
-            setPickedDate={setPickedDate}
-            getAllTasksOnDate={getAllTasksOnDate}
-            userId={user.uid}
-            />
-          </div>
-          <div className="grid-item">
-            <Tasks
-              pickedDate={pickedDate}
-              handleLogoutClick={handleLogoutClick}
-              handleNewDate={handleNewDate}
-              handleNewTask={handleNewTask}
-              userId={user.uid}
-              tasksArray={tasksArray}
-            />
-          </div>
-        </section>
-      </main>
-    </div>
+        <main className="flex min-h-screen flex-col items-center">
+          <ParticleBackground />
+          <section className="grid-container">
+            <div className="grid-item">
+              <Dates
+                pickedDate={pickedDate}
+                setPickedDate={setPickedDate}
+                getAllTasksOnDate={getAllTasksOnDate}
+                userId={user.uid}
+              />
+            </div>
+            <div className="grid-item">
+              <Tasks
+                pickedDate={pickedDate}
+                handleLogoutClick={handleLogoutClick}
+                handleNewDate={handleNewDate}
+                handleNewTask={handleNewTask}
+                userId={user.uid}
+                tasksArray={tasksArray}
+                setTasksArray={setTasksArray}
+                getAllTasksOnDate={getAllTasksOnDate}
+              />
+            </div>
+          </section>
+        </main>
+      </div>
     );
   } else {
     return (
-      <main >
+      <main>
         <section className="custom-grid">
           <div>
             <ParticleBackground />
             <LoginForm
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-            handleLoginClick={handleLoginClick}
-            handleRegisterClick={handleRegisterClick}
-            error={error}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              handleLoginClick={handleLoginClick}
+              handleRegisterClick={handleRegisterClick}
+              error={error}
             />
           </div>
           <div className="container_left">
-          <motion.div initial={{ opacity: 0, scale: 0.5}} 
-                    animate={{ opacity: 1, scale: 1 }} 
-                    transition={{ duration: 1.5 }}
-                    className="custom-column"
-          >
-            <h1 className="custom-heading">
-              <span className="mb-6">Let&apos;s</span>
-              <br></br>
-              <TypeAnimation
-                sequence={[
-                  'get organized',
-                  1000,
-                  'get motivated',
-                  1000,
-                  'be productive',
-                  1000
-                ]}
-                wrapper="span"
-                speed={30}
-                repeat={Infinity}
-              />
-            
-            </h1>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5 }}
+              className="custom-column"
+            >
+              <h1 className="custom-heading">
+                <span className="mb-6">Let&apos;s</span>
+                <br />
+                <TypeAnimation
+                  sequence={['get organized', 1000, 'get motivated', 1000, 'be productive', 1000]}
+                  wrapper="span"
+                  speed={30}
+                  repeat={Infinity}
+                />
+              </h1>
+            </motion.div>
           </div>
         </section>
       </main>
-
-      
     );
   }
 }
