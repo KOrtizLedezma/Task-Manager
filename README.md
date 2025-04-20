@@ -45,7 +45,7 @@ NEXT_PUBLIC_API_URL=http://localhost:1234
 ```
 You can get these from your Firebase Console → Project Settings → General.
 
-### Client (`Server/.env`)
+### Server (`Server/.env`)
 
 Create a file named `.env` inside the `Server/` folder:
 
