@@ -1,47 +1,115 @@
 # To-Do List Web App
 
-Welcome to the To-Do List Web App project! This application allows users to efficiently manage their daily tasks while keeping everything organized by dates. It also features user authentication and real-time data updates using Firebase.
+Welcome to the **To-Do List Web App**! This application helps users efficiently manage tasks, organize them by date, and stay productive — all with a modern, responsive interface and user-friendly design.
 
-## 🚀 Features
 
-- **User Authentication**: Register, log in, and manage sessions with Firebase Authentication.
-- **Task Management**: Add, view, and organize tasks by specific dates.
-- **Calendar Integration**: Select a date to view or manage tasks assigned to that day.
-- **Responsive Design**: Mobile and desktop-friendly interface.
-- **Visual Enhancements**: Includes particle animations for a visually appealing experience.
+## Features
 
-## 🛠️ Technologies Used
+- **User Authentication** – Secure login & registration via Firebase Auth.
+- **Task Management** – Add, view, mark complete, or delete tasks by date.
+- **Date Picker** – Choose the date you're planning for with a built-in selector.
+- **Dark/Light Theme Toggle** – Fully themeable interface using CSS variables.
+- **Responsive UI** – Designed for both mobile and desktop users.
+- **Progress Visualization** – Get feedback on your daily productivity.
 
-- **Frontend**: React, Next.js
-- **State Management**: React Hooks
+## Tech Stack
+
+- **Frontend**: React, Next.js, Tailwind CSS
 - **Authentication**: Firebase Authentication
-- **Database**: Firestore (Firebase)
-- **Styling**: Tailwind CSS
-- **Animation**: Framer Motion, Particle Animation
+- **Backend**: Node.js, Express
+- **Database**: MariaDB (via MySQL2 driver)
+- **Styling**: Tailwind CSS + Custom Themes
 
-## 🌐 Live Demo
+## Project Structure
 
-You can check out the live demo [here](https://to-do-list-webpage-one.vercel.app/).
+To-Do-List-Webpage
+    ├── Client
+    ├── README.md
+    └── Server
 
-## 📚 How to Use
+## Environment Setup
 
-1. **Log in or Register**: Create a new account or log in with your existing credentials.
-2. **Pick a Date**: Use the integrated calendar to select a date and view tasks for that day.
-3. **Add a Task**: Enter the task description and add it to the selected date.
-4. **Remove a Task**: Hover over a task to reveal a "X" button. Click the button to remove the task from your list.
-4. **Task Management**: View your tasks and check their completion status.
+### Client (`Client/.env`)
 
-## 📧 Contact Me
+Create a file named `.env` inside the `Client/` folder:
+
+```env
+NEXT_PUBLIC_REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_REACT_APP_authDomain=your_firebase_project.firebaseapp.com
+NEXT_PUBLIC_REACT_APP_projectId=your_firebase_project_id
+NEXT_PUBLIC_REACT_APP_storageBucket=your_firebase_project.appspot.com
+NEXT_PUBLIC_REACT_APP_messagingSenderId=your_sender_id
+NEXT_PUBLIC_REACT_APP_appId=your_app_id
+
+NEXT_PUBLIC_API_URL=http://localhost:1234
+```
+You can get these from your Firebase Console → Project Settings → General.
+
+### Client (`Server/.env`)
+
+Create a file named `.env` inside the `Server/` folder:
+
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=your_db_username
+DB_PASSWORD=your_db_password
+DB_NAME=task_manager
+PORT=1234
+```
+
+## SQL Table Setup
+
+Use this SQL to create your `tasks` table:
+
+```sql
+CREATE DATABASE IF NOT EXISTS task_manager;
+
+USE task_manager;
+
+CREATE TABLE IF NOT EXISTS tasks (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  completed BOOLEAN DEFAULT FALSE,
+  task_date DATE NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+## Getting Started Locally
+
+1. Install Dependencies
+
+```bash
+cd Client
+npm install
+
+cd ../Server
+npm install
+```
+
+2. Start the Server
+
+```bash
+cd Server
+npm run dev
+```
+
+This starts the Express backend on ```http://localhost:1234```
+
+3. Start the client
+
+```bash
+cd Client
+npm run dev
+```
+
+Visit your frontend at ```http://localhost:3000```
+
+## Contact Me
 
 Feel free to reach out to me through:
 
 - **GitHub**: [Kenet Ortiz](https://github.com/KOrtizLedezma)
 - **LinkedIn**: [Kenet Ortiz](https://www.linkedin.com/in/kenet-ortiz-ledezma-67a4a421b/)
-
-## 🛠️ Deployment
-
-This project is deployed using [Vercel](https://vercel.com/).
-
----
-
-Stay organized and productive with this simple and intuitive To-Do List web app!

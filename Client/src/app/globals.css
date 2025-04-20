@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #0C0F0A;
+  --color-title: #F25F5C;
+  --color-aux: #0C0F0A;
+  --color-accent: #2563eb;
+  --color-accent-light: #3b82f6;
+}
+
+.dark {
+  --color-bg: #50514F;
+  --color-text: #E5E5E5;
+  --color-title: #F25F5C;
+  --color-aux: #FFFFFF;
+  --color-accent: #2563eb;
+  --color-accent-light: #14213D;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Custom scrollbar using --color-title */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-title);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-title);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-title) transparent;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
