@@ -1,5 +1,8 @@
 # To-Do List Web App
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Made with Next.js](https://img.shields.io/badge/Next.js-React-blue?logo=next.js)
+
 Welcome to the **To-Do List Web App**! This application helps users efficiently manage tasks, organize them by date, and stay productive — all with a modern, responsive interface and user-friendly design.
 
 
