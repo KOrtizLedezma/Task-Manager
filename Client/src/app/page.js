@@ -3,6 +3,9 @@ import { useRouter } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
+
+  console.log("API_URL from env:", process.env.NEXT_PUBLIC_API_URL);
+
   const router = useRouter();
 
   const handleStart = () => {
