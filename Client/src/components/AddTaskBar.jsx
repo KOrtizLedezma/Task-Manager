@@ -49,7 +49,7 @@ export default function AddTaskBar({ onAddTask = () => {} }) {
     const selectedDate = getSelectedDate();
 
     try {
-      const res = await axios.post(`${API_URL}/tasks`, {
+      const res = await axios.post(`${API_URL}/api/tasks`, {
         user_id: userId,
         description: task,
         task_date: selectedDate,
@@ -61,7 +61,7 @@ export default function AddTaskBar({ onAddTask = () => {} }) {
       setTask("");
       setCustomDate("");
       setDateOption("today");
-      onAddTask(res.data.task); // ✅ Notify parent to refresh
+      onAddTask(res.data.task); // Notify parent to refresh
     } catch (err) {
       setError(err.response?.data?.message || "Failed to add task.");
     }

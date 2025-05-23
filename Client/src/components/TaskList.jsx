@@ -25,7 +25,7 @@ export default function TaskList({ refreshTrigger = 0 }) {
       if (!userId) return;
 
       try {
-        const res = await axios.get(`${API_URL}/tasks`, {
+        const res = await axios.get(`${API_URL}/api/tasks`, {
           params: { user_id: userId, date: selectedDate }
         });
         setTasks(res.data.tasks);
@@ -39,7 +39,7 @@ export default function TaskList({ refreshTrigger = 0 }) {
 
   const handleToggle = async (taskId, currentState) => {
     try {
-      await axios.put(`${API_URL}/tasks/${taskId}`, {
+      await axios.put(`${API_URL}/api/tasks/${taskId}`, {
         completed: !currentState
       });
 
@@ -55,7 +55,7 @@ export default function TaskList({ refreshTrigger = 0 }) {
 
   const handleDelete = async (taskId) => {
     try {
-      await axios.delete(`${API_URL}/tasks/${taskId}`);
+      await axios.delete(`${API_URL}/api/tasks/${taskId}`);
       setTasks((prev) => prev.filter((t) => t.id !== taskId));
     } catch (err) {
       console.error("Failed to delete task:", err);
