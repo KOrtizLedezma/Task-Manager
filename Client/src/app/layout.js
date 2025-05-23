@@ -9,8 +9,6 @@ export const metadata = {
   description: "A simple task manager application",
 };
 
-console.log("🏗️ VERCEL BUILD API_URL:", process.env.NEXT_PUBLIC_API_URL);
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
